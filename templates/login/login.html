@@ -1,17 +1,29 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {%block title%}
 Login
 {%endblock%}
 
 {%block body%}
-
-    <h1>Log-in</h1>
-    <p>Please, use the following form to log-in:</p>
+<div class="container-fluid py-5 bg-dark" >
     <form action="." method="post">
-        {{ form.as_p }}
         {% csrf_token %}
-        <p><input type="submit" value="Log-in"></p>
-    </form>
+          {% for field in form %}
+    <div class="form-group" style="width:60%;margin-left:20%;color:white;">
 
+      {{ field.label_tag }}<br>
+      {{ field }}
+      {% if field.help_text %}
+        <small style="color: grey">{{ field.help_text }}</small>
+      {% endif %}
+      {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+      {% endfor %}
+</div>
+  {% endfor %}
+       <div class="submit-row  px-lg-5 ">
+            <input type="submit"  class="btn btn-primary" value="Log IN" name="submit">
+    </div>
+    </form>
+</div>
 {%endblock%}
