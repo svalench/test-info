@@ -23,8 +23,20 @@
           <li class="nav-item"> <a class="nav-link" href="/about">About</a> </li>
         </ul>
         <ul class="navbar-nav">
+          {%if not user.username%}
           <li class="nav-item"> <a class="nav-link" href="/login">Log in</a> </li>
           <li class="nav-item"> <a class="nav-link text-primary" href="/signup">Register</a> </li>
+          {%else%}
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#this" role="button" aria-haspopup="true" aria-expanded="false">{{user.username}}</a>
+          <div class="dropdown-menu">
+                <a class="dropdown-item" href="/cabinet">Cabinet</a>
+                <a class="dropdown-item" href="/myevents">My Events</a>
+                <a class="dropdown-item" href="/connections">My Connections</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
+          </li>
+          {%endif%}
         </ul>
       </div>
     </div>
