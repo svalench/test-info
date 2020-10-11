@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -15,8 +16,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar12"> <a class="navbar-brand d-none d-md-block" href="#">
-          <i class="fa d-inline fa-lg fa-circle"></i>
-          <b> BRAND</b>
+          <img src="{%static 'logo/logo1.jpeg'%}" style="width:30%;border-radius:50%;" class="fa d-inline fa-lg fa-circle"></img>
+<!--          <b> DataSPARK</b>-->
         </a>
         <ul class="navbar-nav mx-auto">
           <li class="nav-item"> <a class="nav-link" href="/">{% trans 'Home' %}</a> </li>
@@ -49,7 +50,7 @@
   <div class="py-3 bg-dark">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 text-center"> <i class="d-block fa fa-stop-circle mb-3 text-muted fa-3x"></i>
+        <div class="col-md-12 text-center"> <img class=" mb-3 fa-3x" src="{%static 'logo/logo1.jpeg'%}" style="width:12%;border-radius:50%;"></img>
           <p> <a href="https://goo.su/2HjL" target="_blank"> Rechnoy, 12 <br>Bobruisk - 211030, Belarus</a> </p>
           <p> <a href="tel:+246 - 542 550 5462">+375298940113</a> </p>
           <p class="mb-0" contenteditable="true"> <a href="mailto:info@informatization.tech">info@informatization.tech</a></p>
@@ -71,7 +72,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          <p class="mb-0">© 2020 Informatization.{% trans 'All rights reserved' %}</p>
+          <p class="mb-0">© 2020 DataSPARK.{% trans 'All rights reserved' %}</p>
         </div>
       </div>
     </div>

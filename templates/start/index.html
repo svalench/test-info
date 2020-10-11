@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {%block title%}
 start Page
 {%endblock%}
@@ -7,13 +8,13 @@ start Page
 {%block body%}
 
 
- <div class="py-5 text-center text-white" style="position: relative; overflow: hidden;"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
+ <div class="text-center text-white" style="position: relative; overflow: hidden;"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
       <source src="{%static 'video/vid.mp4'%}" type="video/mp4"> </video>
     <div class="container py-5">
       <div class="row" style="">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <h1 class="mb-4 display-3">Saves your data. <br>Use information in full</h1>
-          <a href="#" class="btn btn-lg btn-primary mx-1">To learn more</a>
+          <h1 class="mb-4 display-3">{% trans 'Saves your data' %}. <br>{% trans  'Use information in full' %}</h1>
+          <a href="#" class="btn btn-lg btn-primary mx-1">{% trans  'To learn more' %}</a>
         </div>
       </div>
     </div>
@@ -22,8 +23,9 @@ start Page
     <div class="container">
       <div class="row">
         <div class="mx-auto col-lg-5 col-md-7 col-10">
-          <h1 class="text-light">O my friend</h1>
-          <p class="mb-3 text-light">I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p> <a class="btn btn-primary" href="#">Act now</a>
+          <h1 class="text-light">{% trans  'What is the essence' %}</h1>
+          <p class="mb-3 text-light">{% trans 'This platform is designed to collect, aggregate and process data from your field devices in the enterprise. You will be able to receive accurate, undistorted information directly to your smartphone or laptop and quickly make decisions on managing your enterprise.' %}</p>
+          <a class="btn btn-primary" href="#">{% trans 'Try now' %}</a>
         </div>
       </div>
     </div>
@@ -32,7 +34,7 @@ start Page
     <div class="container">
       <div class="row">
         <div class="text-center col-md-12">
-          <h1 class="text-white">Choose your plan</h1>
+          <h1 class="text-white">{% trans 'Choose your plan' %}</h1>
         </div>
       </div>
       <div class="row">
@@ -41,18 +43,18 @@ start Page
             <div class="card-body p-4">
               <div class="row">
                 <div class="col-8 shadow-lg">
-                  <h3 class="mb-0">Start</h3>
+                  <h3 class="mb-0">{% trans 'Start' %}</h3>
                 </div>
                 <div class="col-4 text-right">
                   <h2 class="mb-0 shadow-lg"> <b>$0</b> </h2>
                 </div>
               </div>
-              <p class="my-3">A wonderful serenity has taken possession of my entire soul.</p>
+              <p class="my-3">{% trans 'A wonderful serenity has taken possession of my entire soul.' %}</p>
               <ul class="pl-3">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul> <a class="btn btn-primary mt-3" href="#">Get started</a>
+                <li>{% trans 'One' %}</li>
+                <li>{% trans 'Two' %}</li>
+                <li>{% trans 'Three' %}</li>
+              </ul> <a class="btn btn-primary mt-3" href="#">{% trans 'Get started' %}</a>
             </div>
           </div>
         </div>
@@ -61,18 +63,18 @@ start Page
             <div class="card-body p-4">
               <div class="row">
                 <div class="col-8 shadow-lg">
-                  <h3 class="mb-0">Hobby</h3>
+                  <h3 class="mb-0">{% trans 'Hobby' %}</h3>
                 </div>
                 <div class="col-4 text-right">
                   <h2 class="mb-0 shadow-lg"> <b>$9</b> </h2>
                 </div>
               </div>
-              <p class="my-3">I sink under the weight of the splendour of these visions!</p>
+              <p class="my-3">{% trans 'I sink under the weight of the splendour of these visions!' %}</p>
               <ul class="pl-3">
-                <li>Four</li>
-                <li>Five</li>
-                <li>Six</li>
-              </ul> <a class="btn btn-primary mt-3" href="#">Get started</a>
+                <li>{% trans 'Four' %}</li>
+                <li>{% trans 'Five' %}</li>
+                <li> {% trans 'Six' %}</li>
+              </ul> <a class="btn btn-primary mt-3" href="#"> {% trans 'Get started' %}</a>
             </div>
           </div>
         </div>
