@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 
@@ -18,22 +19,22 @@
           <b> BRAND</b>
         </a>
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item"> <a class="nav-link" href="/">Home</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="/#price">Pricing</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="/about">About</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/">{% trans 'Home' %}</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/#price">{% trans 'Pricing' %}</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/about">{% trans 'About' %}</a> </li>
         </ul>
         <ul class="navbar-nav">
           {%if not user.username%}
-          <li class="nav-item"> <a class="nav-link" href="/login">Log in</a> </li>
-          <li class="nav-item"> <a class="nav-link text-primary" href="/signup">Register</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/login">{% trans 'Log in '%}</a> </li>
+          <li class="nav-item"> <a class="nav-link text-primary" href="/signup">{% trans 'Register' %}</a> </li>
           {%else%}
           <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#this" role="button" aria-haspopup="true" aria-expanded="false">{{user.username}}</a>
           <div class="dropdown-menu">
-                <a class="dropdown-item" href="/cabinet">Cabinet</a>
-                <a class="dropdown-item" href="/myevents">My Events</a>
-                <a class="dropdown-item" href="/connections">My Connections</a>
+                <a class="dropdown-item" href="/cabinet">{% trans 'Cabinet' %}</a>
+                <a class="dropdown-item" href="/myevents">{% trans 'My Events' %}</a>
+                <a class="dropdown-item" href="/connections">{% trans 'My Connections' %}</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout">Logout</a>
+                <a class="dropdown-item" href="/logout">{% trans 'Logout' %}</a>
               </div>
           </li>
           {%endif%}
@@ -70,7 +71,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          <p class="mb-0">© 2020 Informatization. All rights reserved</p>
+          <p class="mb-0">© 2020 Informatization.{% trans 'All rights reserved' %}</p>
         </div>
       </div>
     </div>
