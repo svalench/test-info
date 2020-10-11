@@ -5,67 +5,97 @@ Cabinet Start
 {%endblock%}
 {%block body%}
 
-  <div class="py-0">
+<div class="py-0">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <ul class="nav">
-            <li class="nav-item">
-              <a href="#" class="nav-link active">Nav item</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link active">Nav item</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Drop</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
-              </div>
-            </li>
-          </ul>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Nav item</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Nav item</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                           aria-haspopup="true" aria-expanded="false">Drop</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="py-1">
+</div>
+<div class="py-1">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6"><img class="img-fluid d-block rounded-circle shadow" src="https://static.pingendo.com/img-placeholder-3.svg"></div>
-        <div class="col-md-6">
-          <div class="table-responsive shadow">
-            <table class="table table-bordered ">
-              <thead class="thead-dark">
-                <tr>
-                  <th>#</th>
-                  <th>First</th>
-                  <th>Last</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th>2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <img class="img-fluid d-block rounded-circle shadow"
+                         src="https://static.pingendo.com/img-placeholder-3.svg">
+                </div>
+                <div class="row py-3">
+                    <ul>
+                        <div>
+                            <li>Corparation -</li>
+                        </div>
+                        <div>
+                            <li>Department -</li>
+                        </div>
+                        <div>
+                            <li>Role -</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="table-responsive shadow">
+                    <table class="table table-bordered ">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>action</th>
+                            <th>value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>username</td>
+                            <td><input type="text" value="{{user.username}}" data-value="username"/></td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>first name</td>
+                            <td><input type="text" value="{{user.first_name}}" data-value="first_name"/></td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>last name</td>
+                            <td><input type="text" value="{{user.last_name}}" data-value="last_name"/></td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>change password</td>
+                            <td><input type="text" value="{{user.username}}" data-value="username"/></td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>email</td>
+                            <td><input type="text" value="{{user.email}}" data-value="email"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
-      </div>
     </div>
-  </div>
+</div>
 {%endblock%}
