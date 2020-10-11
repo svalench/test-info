@@ -144,3 +144,9 @@ LOCALE_PATHS = (
     'locale',
     # os.path.join(PROJECT_DIR, 'locale'),
 )
+#EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_PASSWORD = '19921122wertkrizis'
+EMAIL_HOST_USER = 'pumpskills@yandex.by'
+EMAIL_PORT = 465
