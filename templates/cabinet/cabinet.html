@@ -68,23 +68,23 @@ Cabinet Start
                         <tr>
                             <th>1</th>
                             <td>username</td>
-                            <td><input type="text" value="{{user.username}}" data-value="username"/></td>
+                            <td><input class="updater" type="text" value="{{user.username}}" data-value="username"/></td>
                         </tr>
                         <tr>
                             <th>2</th>
                             <td>first name</td>
-                            <td><input type="text" value="{{user.first_name}}" data-value="first_name"/></td>
+                            <td><input class="updater" type="text" value="{{user.first_name}}" data-value="first_name"/></td>
                         </tr>
                         <tr>
                             <th>3</th>
                             <td>last name</td>
-                            <td><input type="text" value="{{user.last_name}}" data-value="last_name"/></td>
+                            <td><input class="updater" type="text" value="{{user.last_name}}" data-value="last_name"/></td>
                         </tr>
 
                         <tr>
                             <th>4</th>
                             <td>email</td>
-                            <td><input type="text" value="{{user.email}}" data-value="email"/></td>
+                            <td><input class="updater" type="text" value="{{user.email}}" data-value="email"/></td>
                         </tr>
                         </tbody>
                     </table>
@@ -94,4 +94,29 @@ Cabinet Start
         </div>
     </div>
 </div>
+
+<script>
+$('input.updater').on('keyup',function(e){
+let atr =  $(this).attr('data-value');
+let value =  $(this).val();
+let data = {'value':value,'name':atr};
+sendData(data,"{%url 'upd_data_user' %}");
+});
+
+function sendData(data,url){
+var token = '{{csrf_token}}';
+$.ajax({
+        headers: { "X-CSRFToken": token },
+        type: "POST",
+        url: url,
+        data: data,
+        success : function(text){
+            if (text == "success"){
+                formSuccess();
+            }
+        }
+    });
+}
+
+</script>
 {%endblock%}
