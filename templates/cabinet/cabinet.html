@@ -4,7 +4,25 @@
 Cabinet Start
 {%endblock%}
 {%block body%}
-
+<style>
+    .picture__button{
+  display:inline-block;
+  position:absolute;
+  margin-top:43%;
+  margin-left:40%;
+  width:20%;
+  height:10%;
+  z-index:2;
+  background:none;
+  border:1px solid;
+  font-size:20px;
+  font-weight:bold;
+  color:#fff;
+}
+.picture__button:hover{
+background-color:black;
+}
+</style>
 
 <div class="py-0">
     <div class="container-fluid">
@@ -35,11 +53,13 @@ Cabinet Start
 </div>
 <div class="py-1">
     <div class="container">
+        <input type="file" hidden id="img-load">
         <div class="row">
             <div class="col-md-3">
                 <div class="row">
                     <img class="img-fluid d-block rounded-circle shadow"
                          src="https://static.pingendo.com/img-placeholder-3.svg">
+                    <input type="button" onclick="javascript:document.getElementById('img-load').click()" class="picture__button" value="+" />
                 </div>
                 <div class="row py-3">
                     <ul>
