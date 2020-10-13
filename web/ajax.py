@@ -6,7 +6,11 @@ from django.http import JsonResponse
 def update_data_user(request):
     user = User.objects.get(pk=request.user.pk)
     if(request.POST['name']=='username'):
-        user.username = request.POST['value']
+        try:
+            user.username = request.POST['value']
+            user.save()
+        except:
+            return JsonResponse({'text': 'error! This name is exist'},status=500)
     elif(request.POST['name']=='first_name'):
         user.first_name = request.POST['value']
     elif (request.POST['name'] == 'last_name'):
@@ -15,5 +19,8 @@ def update_data_user(request):
         user.email = request.POST['value']
     else:
         return JsonResponse({'text': 'error'})
-    user.save()
+    try:
+        user.save()
+    except:
+        return JsonResponse({'text': 'error! Somthis wrong on server'}, status=500)
     return JsonResponse({'text': 'success'})
