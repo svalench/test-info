@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from web.forms import CreateCorparation
+from web.models import Corparations
 
 
 class Cabinet:
@@ -19,6 +20,10 @@ class Cabinet:
                 res.save()
                 return HttpResponseRedirect(reverse('cabinet'))
         else:
-            data = {'user_id':request.user}
+            cor = Corparations.objects.filter(user_id=request.user)
+            if(cor[0]):
+                data = {'name':cor[0].name}
+            else:
+                data = {}
             form = CreateCorparation(initial=data)
         return render(request,'cabinet/corp_create.html',{'form': form})

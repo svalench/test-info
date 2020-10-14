@@ -67,13 +67,21 @@ background-color:black;
                             <li>Corparation -
                                 {% if user.corparations_set.all.0 %}
                                {{ user.corparations_set.all.0.name}}
+                                <a type="button" class="btn btn-primary btn-sm" href="{%url 'create_corp'%}" >update</a>
                                 {%else%}
-                               <a type="button" class="btn btn-primary" href="{%url 'create_corp'%}" >create or join</a>
+                               <a type="button" class="btn btn-primary btn-sm" href="{%url 'create_corp'%}" >create or join</a>
                                 {%endif%}</li>
                         </div>
                         {% if user.corparations_set.all.0 %}
                         <div>
-                            <li>Department -</li>
+
+                            <li>Department -
+                            {% if user.depatments_set.all.0 %}
+                                {{user.depatments_set.all.0.name }}
+                                {%else%}
+                                 <a type="button" class="btn btn-primary btn-sm" href="{%url 'create_corp'%}" >create or join</a>
+                                {%endif%}
+                            </li>
                         </div>
                         <div>
                             <li>Role -</li>
