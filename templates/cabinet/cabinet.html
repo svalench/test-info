@@ -64,14 +64,21 @@ background-color:black;
                 <div class="row py-3">
                     <ul>
                         <div>
-                            <li>Corparation -</li>
+                            <li>Corparation -
+                                {% if user.corparations_set.all.0 %}
+                                user.corparations_set.all.name
+                                {%else%}
+                               <input type="button" class="btn btn-primary" value="create or join" />
+                                {%endif%}</li>
                         </div>
+                        {% if user.corparations_set.all.0 %}
                         <div>
                             <li>Department -</li>
                         </div>
                         <div>
                             <li>Role -</li>
                         </div>
+                        {%endif%}
                     </ul>
                 </div>
             </div>
