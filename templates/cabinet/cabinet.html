@@ -65,14 +65,14 @@ background-color:black;
                     <ul>
                         <div>
                             <li>Corparation -
-                                {% if user.corparations_set.all.0 %}
-                               {{ user.corparations_set.all.0.name}}
+                                {% if user.corparations.id %}
+                               {{ user.corparations.name}}
                                 <a type="button" class="btn btn-primary btn-sm" href="{%url 'create_corp'%}" >update</a>
                                 {%else%}
                                <a type="button" class="btn btn-primary btn-sm" href="{%url 'create_corp'%}" >create or join</a>
                                 {%endif%}</li>
                         </div>
-                        {% if user.corparations_set.all.0 %}
+                        {% if user.corparations.id %}
                         <div>
 
                             <li>Department -
@@ -135,11 +135,11 @@ background-color:black;
 
         </div>
     </div>
-
+{% include 'cabinet/modal/change_departmens.html'%}
   <div id="body-toast" style="position: absolute; top: 0; right: 0;">
 
   </div>
-{% include 'cabinet/modal/change_departmens.html'%}
+
 </div>
 
 
@@ -185,7 +185,7 @@ async function changeDep(){
     var deps = await sendData({},"{%url 'get_deps_ajax'%}",null,true).then(function(data){return data;});
     var input = document.createElement("input");
     input.type = "text";
-    input.className = "form-control";
+    input.className = "updater form-control";
     var inp = [];
     if(deps.deps!='null'){
         inp.push(input);

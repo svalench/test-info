@@ -1,4 +1,7 @@
 <div id="modal_cabinet" class="modal" tabindex="-1" role="dialog">
+    <div id="body-toast-modal" style="position: absolute; top: 0; right: 0;">
+
+  </div>
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,7 +14,7 @@
                 <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" onclick="save_deps()" class="btn btn-primary">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -22,12 +25,31 @@
     function openModal(title,html,after_load){
     $('#modal_cabinet').find('.modal-body').html('');
     $('#modal_cabinet').find('.modal-title').text(title);
+    var i=1;
     html.forEach(function(a,b){
+    var lable = document.createElement("lable");
+    lable.innerHTML = i;
+    $('#modal_cabinet').find('.modal-body').append(lable);
     $('#modal_cabinet').find('.modal-body').append(a);
+    i++;
     });
 
     $('#modal_cabinet').modal('show');
-    after_load();
+
     }
 
+function save_deps(){
+var data = {};
+var url = "{%url 'save-or-update-deps'%}";
+var arr = $('#modal_cabinet').find('.modal-body').find('input');
+console.log(arr);
+dat = []
+arr.each(function(a,b){
+console.log(b);
+dat.push({'a':b.value,'b':{{ user.corparations.pk }}});
+});
+data = {dat}
+console.log(data);
+sendData(data,url);
+}
 </script>

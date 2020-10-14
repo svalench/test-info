@@ -6,7 +6,7 @@ class Corparations(models.Model):
     """
     модель для предприятий
     """
-    user_id = models.ForeignKey(User, unique=True, on_delete=models.SET_NULL, null=True, verbose_name="who created")
+    user_id = models.OneToOneField(User, unique=True, on_delete=models.SET_NULL, null=True, verbose_name="who created")
     name = models.CharField("Name corparation", max_length=255, unique=True)
 
     def __str__(self):

@@ -2,6 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 
+from web.models import Depatments
+
+
 @login_required
 def update_data_user(request):
     user = User.objects.get(pk=request.user.pk)
@@ -32,3 +35,17 @@ def get_departments(request):
     except:
         deps = 'null'
     return JsonResponse({'deps': deps})
+
+
+@login_required
+def create_or_update_departments(request):
+    deps = request.user.corparations.depatments_set.all()
+    print(deps)
+    if(not deps):
+        form = request.POST
+
+        for i in form:
+            print(form)
+            a = Depatments(name=form['dat[0][a]'], corp_id_id=form['dat[0][b]'])
+            a.save()
+    return JsonResponse({'text': 'sucees load data'})
