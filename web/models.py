@@ -3,11 +3,17 @@ from django.db import models
 
 
 class Corparations(models.Model):
+    """
+    модель для предприятий
+    """
     user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, verbose_name="who created")
     name = models.CharField("Name corparation", max_length=255)
 
 
 class Depatments(models.Model):
+    """
+    модель для отделов предприятия
+    """
     corp_id = models.ForeignKey(Corparations, on_delete=models.CASCADE, verbose_name="corp id")
     name = models.CharField("Name department", max_length=255)
 
