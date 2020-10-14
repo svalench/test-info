@@ -9,6 +9,8 @@ class Corparations(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, verbose_name="who created")
     name = models.CharField("Name corparation", max_length=255)
 
+    def __str__(self):
+        return self.name
 
 class Depatments(models.Model):
     """
@@ -17,6 +19,8 @@ class Depatments(models.Model):
     corp_id = models.ForeignKey(Corparations, on_delete=models.CASCADE, verbose_name="corp id")
     name = models.CharField("Name department", max_length=255)
 
+    def __str__(self):
+        return self.name
 
 class Roles(models.Model):
     """
@@ -25,6 +29,8 @@ class Roles(models.Model):
     corp_id = models.ForeignKey(Corparations, on_delete=models.CASCADE, verbose_name="corp id")
     name = models.CharField("Name role", max_length=255)
 
+    def __str__(self):
+        return self.name
 
 class Employees(models.Model):
     """
@@ -35,3 +41,6 @@ class Employees(models.Model):
     corp_id = models.ForeignKey(Corparations, on_delete=models.CASCADE, verbose_name="corp id")
     role_id = models.ForeignKey(Roles, on_delete=models.SET_NULL,null=True, verbose_name="user id")
     dep_id = models.ForeignKey(Depatments, on_delete=models.SET_NULL, null=True, verbose_name="department id")
+
+    def __str__(self):
+        return self.name

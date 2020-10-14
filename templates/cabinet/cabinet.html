@@ -66,9 +66,9 @@ background-color:black;
                         <div>
                             <li>Corparation -
                                 {% if user.corparations_set.all.0 %}
-                                user.corparations_set.all.name
+                               {{ user.corparations_set.all.0.name}}
                                 {%else%}
-                               <input type="button" class="btn btn-primary" value="create or join" />
+                               <a type="button" class="btn btn-primary" href="{%url 'create_corp'%}" >create or join</a>
                                 {%endif%}</li>
                         </div>
                         {% if user.corparations_set.all.0 %}
