@@ -24,3 +24,11 @@ def update_data_user(request):
     except:
         return JsonResponse({'text': 'error! Somthis wrong on server'}, status=500)
     return JsonResponse({'text': 'success'})
+
+@login_required
+def get_departments(request):
+    try:
+        deps = request.user.corparations_set.all()[0].departments_set.all()
+    except:
+        deps = 'null'
+    return JsonResponse({'deps': deps})

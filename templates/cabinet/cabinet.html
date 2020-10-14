@@ -79,7 +79,7 @@ background-color:black;
                             {% if user.depatments_set.all.0 %}
                                 {{user.depatments_set.all.0.name }}
                                 {%else%}
-                                 <a type="button" class="btn btn-primary btn-sm" href="{%url 'create_corp'%}" >create or join</a>
+                                 <button type="button" class="btn btn-primary btn-sm" onclick="changeDep()">view</button>
                                 {%endif%}
                             </li>
                         </div>
@@ -139,26 +139,27 @@ background-color:black;
   <div id="body-toast" style="position: absolute; top: 0; right: 0;">
 
   </div>
-
+{% include 'cabinet/modal/change_departmens.html'%}
 </div>
 
 
 <script>
-var timerId;
+var timerId={};
 $('input.updater').on('keyup',function(e){
-clearTimeout(timerId);
 let atr =  $(this).attr('data-value');
 let value =  $(this).val();
 let data = {'value':value,'name':atr};
-timerId = setTimeout(sendData,1000,data,"{%url 'upd_data_user' %}",this);
+clearTimeout(timerId[atr]);
+timerId[atr] = setTimeout(sendData,1000,data,"{%url 'upd_data_user' %}",this);
 });
 
-function sendData(data,url,e){
+async function sendData(data,url,e=null,async = true){
 var token = '{{csrf_token}}';
-$.ajax({
+return $.ajax({
         headers: { "X-CSRFToken": token },
         type: "POST",
         url: url,
+        async: async,
         data: data,
         success : function(text){
                 var suc_toast = jQuery(`{% include "elements/toast/succes_load_toast.html" %}`);
@@ -166,9 +167,9 @@ $.ajax({
                 suc_toast.find(".toast-body").html('success load data');
                 $('.toast').toast('show');
                 hideToast(suc_toast,2000);
+               // return text;
         }
     }).fail(function(text){
-    console.log(text);
        var err_toast = jQuery(`{% include "elements/toast/error_load_toast.html" %}`);
         $("#body-toast").append(err_toast);
         err_toast.find(".toast-body").html(text.responseJSON.text);
@@ -178,6 +179,12 @@ $.ajax({
 }
 function hideToast(e,t){
 setTimeout(()=>{ $(e).remove()},t)
+}
+var globalsdeps;
+function changeDep(){
+globalsdeps =  sendData({},"{%url 'get_deps_ajax'%}",null,false);
+globalsdeps.then(data=> console.log(data));
+openModal('Departments','in this block you show departments',()=>{return false});
 }
 </script>
 {%endblock%}

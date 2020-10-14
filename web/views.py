@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
@@ -5,9 +6,10 @@ from django.urls import reverse
 from web.forms import CreateCorparation
 from web.models import Corparations
 
-
+@login_required
 class Cabinet:
     def start(request):
+        print(dir(request.user))
         return render(request, 'cabinet/cabinet.html', {
             'foo': 'bar',
         })
