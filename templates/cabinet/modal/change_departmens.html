@@ -19,9 +19,13 @@
 </div>
 
 <script>
-    function openModal(title,text,after_load){
+    function openModal(title,html,after_load){
+    $('#modal_cabinet').find('.modal-body').html('');
     $('#modal_cabinet').find('.modal-title').text(title);
-    $('#modal_cabinet').find('.modal-body').text(text);
+    html.forEach(function(a,b){
+    $('#modal_cabinet').find('.modal-body').append(a);
+    });
+
     $('#modal_cabinet').modal('show');
     after_load();
     }

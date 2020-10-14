@@ -180,11 +180,19 @@ return $.ajax({
 function hideToast(e,t){
 setTimeout(()=>{ $(e).remove()},t)
 }
-var globalsdeps;
-function changeDep(){
-globalsdeps =  sendData({},"{%url 'get_deps_ajax'%}",null,false);
-globalsdeps.then(data=> console.log(data));
-openModal('Departments','in this block you show departments',()=>{return false});
+
+async function changeDep(){
+    var deps = await sendData({},"{%url 'get_deps_ajax'%}",null,true).then(function(data){return data;});
+    var input = document.createElement("input");
+    input.type = "text";
+    input.className = "form-control";
+    var inp = [];
+    if(deps.deps!='null'){
+        inp.push(input);
+    }else{
+    inp.push(input);
+    }
+    openModal('Departments',inp,()=>{return false});
 }
 </script>
 {%endblock%}
